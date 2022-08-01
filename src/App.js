@@ -1,6 +1,7 @@
-import Expenses from './Components/Expenses';
+import Expenses from './Components/Expenses/Expenses';
 import './App.css';
-function App() {
+
+const App = () => {
   const expenses = [
     {
       title: "Home Wifi",
