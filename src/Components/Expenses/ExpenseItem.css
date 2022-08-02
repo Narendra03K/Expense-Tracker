@@ -54,3 +54,19 @@
     padding: 0.5rem 1.5rem;
   }
 }
+
+.btn{
+  color: white;
+  text-align: center;
+  background-color: #035172;
+  padding: 8px;
+  border-radius: 0.5rem;
+  margin-left: 8px;
+  text-decoration: solid;
+  font-size: medium;
+  display: block;
+  cursor: pointer;
+}
+ .btn:hover {
+   background-color: rgb(47, 47, 21);
+ }
