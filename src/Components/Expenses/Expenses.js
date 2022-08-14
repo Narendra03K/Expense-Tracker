@@ -10,10 +10,11 @@ const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020');
   const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
-    console.log(selectedYear);
+    // console.log(selectedYear);
   }
   return (
-      <Card className="expenses">
+    <Card className="expenses">
+      {/* we are also doing the 2 wy binding here  */}
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
         <ExpenseItem
           title={props.items[0].title}
