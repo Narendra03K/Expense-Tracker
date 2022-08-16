@@ -10,27 +10,29 @@ const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020');
   const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
-    // console.log(selectedYear);
   }
+    //  logic to filter the content by year 
+    const filteredExpenses = props.items.filter(expense => {
+      return expense.date.getFullYear().toString() === filteredYear;   
+    });
+  
+  let expenseContent = <p id="para">No Expenses Found</p>;
+
+  if (filteredExpenses.length > 0) {
+    
+      expenseContent = filteredExpenses.map(expense =>
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date} />) 
+  } 
   return (
     <Card className="expenses">
-      {/* we are also doing the 2 wy binding here  */}
+      {/* we are also doing the 2 wy binding here 
+      instead of hardcoding we are displaying the eelements here dynamically  */}
+
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-        <ExpenseItem
-          title={props.items[0].title}
-          date={props.items[0].date}
-          amount={props.items[0].amount}
-        />
-        <ExpenseItem
-          title={props.items[1].title}
-          amount={props.items[1].amount}
-          date={props.items[1].date}
-        />
-        <ExpenseItem
-          title={props.items[2].title}
-          amount={props.items[2].amount}
-          date={props.items[2].date}
-        />
+     {expenseContent}
       </Card>
   );
 }
